@@ -69,6 +69,10 @@ def cuenta_regresiva(n:int):
         n-=1
         if n == 0:
             print("Despegue")
-
+            
+def cuenta(n:int) -> int:
+    for i in range (n,0,-1):
+        print(i)
+    print("Despegue")
 cuenta_regresiva(56)
     
