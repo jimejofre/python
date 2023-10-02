@@ -75,4 +75,13 @@ def cuenta(n:int) -> int:
         print(i)
     print("Despegue")
 cuenta_regresiva(56)
+
+def peso_pino(altura:int) -> int:
+    if altura <= 3:
+     return  300 * altura 
+    elif  altura > 3 : 
+     return  200 * (altura-3) + 300 * 3
     
+     
+
+print(peso_pino(5))
