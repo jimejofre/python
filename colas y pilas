@@ -1,0 +1,84 @@
+from queue import LifoQueue as Pila
+from queue import Queue as Cola 
+import random
+
+def generarnrosalazar(n : int, desde: int, hasta: int) -> list[int]:
+    listadenumerosposibles = []
+    for i in range(desde, hasta):
+        listadenumerosposibles.append(i)
+    return random.sample(listadenumerosposibles, n)
+
+def cantidadelementos(p: Pila) -> int:
+    cantidad = 0
+    while p.empty() != True:
+        p.get()
+        cantidad += 1
+    return cantidad
+
+def buscar_el_maximo(p: Pila) -> int:
+    maximo = p.get()
+    while p.empty != True:
+        elemento = p.get()
+        if elemento > maximo:
+            maximo = elemento
+    return maximo
+
+def estaBienEscrita(s: str) -> bool:
+    operacionesBasicas = ["+", "-", "x", "/"]
+    for i in range(len(s)):
+        if (s[i] in operacionesBasicas):
+            if s[i+1] != " ":
+                return False
+        if s[i] == "(":
+            if ")" not in s[:i:]:
+                return False
+            
+def generarcola() -> Cola:
+    listaNums = generarnrosalazar(3,1,4)
+    c = Cola()
+    for i in listaNums:
+        c.put(i)
+    return c
+
+def cantidad_elementos(c : Cola) -> int:
+    cantidad = 0
+    while c.empty() != True:
+        cantidad += 1
+        c.get()
+    return cantidad
+
+def buscar_el_maximo(c:Cola) -> int:
+    maximo = c.get()
+    while c.empty != True:
+        elemento = c.get()
+        if elemento > maximo:
+            maximo = elemento 
+    return maximo
+
+def armarsecuenciabingo() -> Cola[int]:
+    c = Cola()
+    numeros = []
+    for i in range(0,100):
+        numeros.append(i)
+    numeros = random.sample(numeros, 99)
+    for i in numeros:
+        c.put(i)
+    return c
+
+def jugarcartonbingo(carton: list[int], bolillero: Cola[int]) -> int:
+    jugadas = 0
+    while carton != []:
+        elemento = bolillero.get()
+        if elemento in carton:
+            carton.remove(elemento)
+        juadas += 1
+    return jugadas
+
+def pacientesurgentes(c: Cola[(int, str, str)]) -> int:
+    pacientesurgentes = 0
+    while c.empty() != True:
+        paciente = c.get()
+        if paciente[0]<= 3:
+            pacientesurgentes += 1
+    return pacientesurgentes
+                    
