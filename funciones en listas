@@ -1,0 +1,69 @@
+def contar_lineas(nombre_archivo: str) -> str:
+    f = open(nombre_archivo, "r")
+    contador : int = 0
+    for i in f.readlines():
+        contador += 1
+    f.close()
+
+    return contador
+
+def existe_palabra(nombre_archivo: str, palabra: str) -> bool:
+    f = open(nombre_archivo, "r")
+    for linea in f.readlines():
+        if palabra in linea :
+            return True   
+    f.close()
+    return False
+
+def cantidad_apariciones(nombre_archivo: str, palabra: str) -> int:
+    f = open(nombre_archivo, "r")
+    contador : int = 0
+    for linea in f.readlines():
+        if palabra in linea:
+            contador += 1 
+    f.close()
+    return contador
+
+def cantidad_apariciones(nombre_archivo: str, palabra: str) -> int:
+    contador: int = 0  
+    with open(nombre_archivo, "r") as f:
+        for linea in f:
+            if palabra in linea:
+                contador += 1
+    return contador
+#2
+def clonar_sin_comentarios(nombre_archivo: str):
+    archivo = open(nombre_archivo,"r")
+    lineas = archivo.readlines()
+    archivo_nuevo = []
+
+    for l in lineas:
+        s = l.strip
+        if len(s) == 0 or not ("#" == s[0]) in l:
+            archivo_nuevo.append(l)
+    archivo.close()
+
+    salida = open(archivo_nuevo, "w")
+    for l in archivo_nuevo:
+        salida.write(l)
+    salida.close()
+
+def reverso(nombre_archivo: str):
+    archivo = open(nombre_archivo, "r")
+    lineas = archivo.readlines()
+    archivo_reverso = open("reverso.txt", "w")
+    for l in lineas:
+        archivo_reverso.writelines(lineas[-1])
+    archivo_reverso.close()
+    archivo.close()
+
+def frase_y_texto(nombre_archivo : str, frase: str ):
+    archivo = open(nombre_archivo, "a")
+    archivo.write(" " + frase)
+    archivo.close()
+
+def frase_al_principio(nombre_archivo: str, frase: str):
+    archivo = open(nombre_archivo, "r+")
+    archivo.seek(0)
+    archivo.write(frase + " " + archivo)
+    archivo.close()
