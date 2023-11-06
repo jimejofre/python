@@ -1,0 +1,43 @@
+#1 
+def ultima_aparicion(s:list[int], e:int) -> int:
+    ultimaPos = -1
+    for i in range(len(s)):
+        if s[i] == e:
+            ultimaPos = i
+    return ultimaPos
+#2
+def elementos_exclusivos(s: list[int], t: list[int]) -> list:
+    listaExclusiva: list[int] = []
+    listaExclusiva = list(set(elementos_unicos(s,t) + elementos_unicos(t,s)))
+    return listaExclusiva
+
+def elementos_unicos(s, t):
+    elementos_unicos = []
+    for elemento in s:
+        if elemento not in t:
+            elementos_unicos.append(elemento)
+    return elementos_unicos
+
+print(elementos_exclusivos([3,44,5,4,3], [5,6,7,4]))
+
+#3
+def contar_traducciones_iguales(ing: dict, ale:dict) -> int:
+    contador = 0
+    for key in ing.keys():
+        if key in ale and ing[key] == ale[key]:
+            contador += 1
+    return contador
+
+#4
+def convertir_a_diccionario(l:list[int]):
+    diccionario = {}
+
+    for elemento in l:
+        if elemento in diccionario:
+            diccionario[elemento] += 1
+        else:
+            diccionario[elemento] = 1
+    return diccionario
+
+print(convertir_a_diccionario([3,4,5,3]))
+
